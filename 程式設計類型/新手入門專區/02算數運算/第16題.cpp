@@ -2,58 +2,69 @@
 #include <math.h> 
 
 int main() {
-   	int AM1,AM2,PM1,PM2,a,b,total,tag = 0,tim,c;
+   	int S1,S2,E1,E2,a,b,total,tag = 0,tim,totalmin;
    	
-   	scanf("%d %d",&AM1,&AM2);
+   	scanf("%d %d",&S1,&S2);
    	
-   	scanf("%d %d",&PM1,&PM2);
+   	scanf("%d %d",&E1,&E2);
    	
    	a=0;
    	b=0;
    	
-   	if(AM1 > PM1)
+   	if(S1 > E1)
    	{
-   		a = AM1 - PM1;
+   		a = S1 - E1;
 	}
 	else
 	{
-		a = PM1 - AM1;
+		a = E1 - S1;
 	}
-   	if(AM2 > PM2)
+	
+	if(S1 > E2)
    	{
-   		b = AM2 - PM2;
+   		a = a - 1;
+   		b = S2+60 - E2;
 	}
 	else
 	{
-		b = PM2 - AM2;
+		a = a - 1;
+		b = E2 +60 - S2;
 	}
+   	if(a < 0)
+   	{
+   		a = 0;	
+	}
+	totalmin = a * 60 + b;
+	
+	if(b >= 60)
+	{
+		a = a + 1;
+		b = 0;
+	}
+	//printf("%d %d\n",a,b);
 	tim = 2 * a;//ºâ¥b¤p®É 
-	if(a <= 2)
+	
+	if(totalmin <= 120)
 	{
-		
 		total = tim * 30;
 		tag = 1;
 	}
-	else
+	if(totalmin > 120 && totalmin <= 240)
 	{
 		tim = tim - 4;
-		total = 4 * 30;
-		if(a <= 4)
-		{
-			total = total + (tim * 40);	
-			tag =2;
-		}
-		else
-		{
-			tim = tim - 8;
-			
-			total = total + 4 * 30;
-			total = total + 4 * 40;
-			total = total + (tim * 60);
-			tag =3;
-		}
+		total = 120;
+		total = total + (tim * 40);	
+		tag =2;
 	}
-	if(b >= 30 )
+	if(totalmin > 240)
+	{
+		tim = tim - 8;
+		total = 120 + 160;
+		total = total + (tim * 60);
+		tag =3;
+	}
+	
+	if(b >= 30)
 	{
 		if(tag == 1)
 		{
