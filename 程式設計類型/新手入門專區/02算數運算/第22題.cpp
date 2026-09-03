@@ -1,16 +1,22 @@
 #include <stdio.h>
-#include <string.h>
 
 int main()
 {
-	int a;
-	char b[100];
+	int a,i,bit;
 	scanf("%d",&a);
-	sprintf(b,"%x",a);
-	strupr(b);
-	printf("%s",b);
+	for(i = 7;i>=0;i--)
+	{
+		bit = (1 << i);
+		if(a & bit)
+		{
+			printf("1");
+		}
+		else
+		{
+			printf("0");
+		}
+	}
 	return 0;
 }
-
 		
 
