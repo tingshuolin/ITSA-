@@ -8,13 +8,13 @@ int main() {
    	if(a <= 800)
    	{
    		b = (double)a * 0.9;
-        break;		
+        		
 	}
-	if(a > 800 && a <= 1500)
+	if(a > 800 && a < 1500)
 	{
 		b = (double)a * 0.9 * 0.9;
 	}
-	if(a > 1500)
+	if(a >= 1500)
 	{
 		b = (double)a * 0.9 * 0.79;
 	}

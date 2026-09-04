@@ -2,28 +2,30 @@
 
 int main()
 {
-	int n,i,total = 0,flag = 0,e = 0;
+	int n,i,total = 0,flag = 0,flag2 = 0 ,e = 0,input = 2;
 	scanf("%d",&n);
-	int a[500] = {2};
-	int b[500];
-	for(i = 2; i < 500;i++)
+	int a[n] ;
+	int b[n] ;
+	//if(n < 1 || n > 500)
+	for(i = 2; e < n;i++)
 	{
-		a[i-2] = i;
+		b[e] = i;
 		for(int j = 2; j<i;j++)
 		{
 			if(i % j == 0)
 			{
 				flag = 1;
-				continue;
+				break;
 			}
 		}
 		if(flag == 1)
 		{
-			a[i-2] = 0;
+			b[e] = 0;
 			flag = 0;
 		}
 		else
 		{
+			//
 			b[e] = i;
 			e++;
 		}	
@@ -33,18 +35,21 @@ int main()
 	{
 		if(b[i] == 0)
 		{
+			printf("\b ");
 			break;
 		}
         if(i + 1 >= n)
         {
             printf("%d",b[i]);
             total += b[i];
-            continue;
+            break;
         }
+        
 		printf("%d,",b[i]);
 		total += b[i]; 
 	}
 	printf("\n");
+	//printf("%d\n",e);
 	printf("%d",total);
 	return 0;
 }

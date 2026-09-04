@@ -11,7 +11,7 @@ int main()
 	}
 	for(i =0;i<x;i++)
 	{
-		if(a[i] <= 60)
+		if(a[i] < 70)
 		{
 			if(a[i] > 37)
 			{
