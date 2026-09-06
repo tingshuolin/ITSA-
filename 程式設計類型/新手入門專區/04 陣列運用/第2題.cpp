@@ -3,21 +3,21 @@
 #include <math.h>
 int main() {
    	
-   int n,i,j,length,mark,c,d,t,p = 0;
+   int n,i,j,length,mark,c,d,t,p = 0,y;
+   long long input;
    scanf("%d",&n);
-   int a[n] = {0};
-   for(i = 0;i < n;i++)
+   int a[n] ;
+   
+   scanf("%lld",&input);
+   
+   for(i = 0;i <n;i++)
    {
-   	scanf("%d",&a[i]);
-   }
+   	a[i] =  input / pow(10,(n - i-1));
+	input = input - (a[i] * pow(10,n-i-1));
+	  
+    }
    length = n;
-   
-   scanf("%d",&t);
-   
-   int e[n/t][t];
-   for(i = 0;i<n;i++)
-   	{
-		for(c=0;c<length;c++)
+   for(c=0;c<length;c++)
 		{
 			for(d=c+1;d<length;d++)
 			{	
@@ -32,24 +32,39 @@ int main() {
 				}
 			}
 		}
-		
-	}
    
+   scanf("%d",&t);
    
+   y = ceil(n/t);
    
+   if(n%t != 0)
+   {
+   	y = y +1;
+   }
    
-   for(i = 0;i < n/t;i++)
+   int e[y][t];
+	
+   
+   for(i = 0;i < y;i++)
    {
    	for(j = 0;j <t;j++)
    	{
+   		if(a[p] < 0 || a[p] > 9)
+   		{
+   			break;
+		}
+   		if(p + 1 >= n)
+   		{
+   			e[i][j] = a[p];
+   			printf("%d",e[i][j]);	
+   			break;
+		}
    		e[i][j] = a[p];
    		printf("%d",e[i][j]);	
    		p++;
 	}
 	printf(" ");
    }
-   
-   
    
 	return 0;
 }
