@@ -3,31 +3,33 @@
 
 int main() {
    	
-	int i,n;
+	int i,n,start,stop,total = 0;
 	scanf("%d",&n);
 	int a[n],b[n];
+	
 	for(i = 0;i<n;i++)
 	{
 		scanf("%d",&a[i]);
 	}
+	
+	scanf("%d %d",&start,&stop);
+	
+	
 	
 	for(i = 0;i<n;i++)
 	{
 		b[i] = 0;
 	}
 	
-	for(i = 0;i<n;i++)
+	for(i = start-1; i <= stop-1;i++)
 	{
-		for(int j = 0;j<i+1;j++)
-		{
-			b[i] =  a[j] + b[i];
-		}
+	
+		total = total + a[i];
+		
 	}
 	
-	for(i = 0;i<n;i++)
-	{
-		printf("%d ",b[i]);
-	}
+	printf("%d\n",total);
+	
 	
 	return 0;
 }

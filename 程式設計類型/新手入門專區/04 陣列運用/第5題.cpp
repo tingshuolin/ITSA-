@@ -5,7 +5,10 @@ int main() {
    	
 	int i,n;
 	scanf("%d",&n);
-	int a[n],b[n];
+	int a[n+1],b[n+1];
+	
+	
+	
 	for(i = 0;i<n;i++)
 	{
 		scanf("%d",&a[i]);
@@ -16,13 +19,18 @@ int main() {
 		b[i] = 0;
 	}
 	
-	for(i = 0;i<n;i++)
+	b[0] = a[0];
+	
+	for(i = n;i>0;i--)
 	{
-		for(int j = 0;j<i+1;j++)
+		if(i - 1 < 0)
 		{
-			b[i] =  a[j] + b[i];
+			b[0] = a[0];
+			break;
 		}
+		b[i] =  a[i] - a[i-1];
 	}
+	
 	
 	for(i = 0;i<n;i++)
 	{
